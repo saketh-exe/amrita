@@ -1,0 +1,100 @@
+body{
+    margin: 0px;
+}
+.image{
+    width: 100%;
+    background-color: #C50A4C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav{
+    width: 100%;
+    background-color: beige;
+    display: flex;
+    align-items: baseline;
+
+    .Status{
+        margin-right: 2%;
+        margin-left: 2%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 25px;
+        transition: 300ms ease all;
+        padding: 5px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    .Status:hover{
+        color: rgb(131, 160, 255);
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .Status::after{
+        content:'\2192';
+        margin-left: 20px;
+        
+
+
+    }
+}
+.warpper{
+    display: flex;
+}
+.sidebar{
+    width: 15%;
+    background-color: antiquewhite;
+    height: 87.5vh;
+}
+.Side_content{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    align-items: center;
+    background-color: rgb(189, 189, 189);
+    font-size: 44px;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.Side_content:hover{
+    background-color: rgb(124, 124, 124);
+}
+.Main{
+    width: 85%;
+    background-color: #ffffff;
+    height: 87.5vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;    
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    .Contents{
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        font-weight: 400;
+        background-color: aliceblue;
+        border-radius: 20px;
+    }
+    .Contents:hover{
+        background-color: rgb(194, 226, 255);
+        cursor: pointer;
+    }
+    
+}
+
+.Year {
+    /* Initially visible */
+    display: block;
+}
