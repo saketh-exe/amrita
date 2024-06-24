@@ -58,7 +58,7 @@ function renderSidebar() {
 files.forEach(file => {
     file.addEventListener("click", () => {
         resetContentDisplay(files);
-        if (file.innerHTML.trim() === 'Common') {
+        if (file.innerHTML.trim() === 'Common Files') {
             document.querySelector(".sidebar").style.display = "none";
         } else {
             resetContentDisplay(years);
