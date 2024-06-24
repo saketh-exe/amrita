@@ -40,7 +40,7 @@ function renderStatus() {
 function renderSidebar() {
     const [file, year, sem, dept, sec] = pathArray;
 
-    if (file === 'Common') {
+    if (file === 'Common Files') {
         document.querySelector(".sidebar").style.display = "none";
     } else {
         document.querySelector(".sidebar").style.display = "flex";
