@@ -71,6 +71,7 @@ nav {
   height: 150px;
   display: flex;
   justify-content: center;
+  text-align: center;
   align-items: center;
   font-size: 21px;
   text-transform: uppercase;
@@ -83,8 +84,6 @@ nav {
   cursor: pointer;
 }
 
-
-
 .active {
   background-color: #ff7eabea;
   color: black;
@@ -95,8 +94,9 @@ nav {
 .Side_content:hover {
   background-color: #ff6299ea;
 }
+
 .Main {
-  background-image: url("Vector\ Graphic.png");
+  background-image: url("./img/Vector\ Graphic.png");
   background-repeat: no-repeat;
   background-size: 100%;
   width: 85%;
@@ -107,33 +107,33 @@ nav {
   justify-items: center;
   align-items: center;
   .Contents {
-  width: 350px;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  font-weight: 500;
-  background-color: #ffe9f1;
-  border-radius: 20px;
-  transition: all 0.35s ease;
-  border: 2px solid #6c1232;
-  cursor: pointer;
+    width: 350px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 500;
+    background-color: #ffe9f1;
+    border-radius: 20px;
+    transition: all 0.35s ease;
+    border: 2px solid #6c1232;
+    cursor: pointer;
   }
   .Contents:hover {
     background-color: #ffabcaba;
-  cursor: pointer;
-  transform: scale(1.03);
-  font-weight: 600;
+    cursor: pointer;
+    transform: scale(1.03);
+    font-weight: 600;
   }
   .Year,
   .Sem,
   .Deprt,
   .Sec {
-  display: none;
+    display: none;
   }
   .Files {
-  display: flex;
+    display: flex;
   }
 }
 
@@ -158,15 +158,30 @@ button {
   background-color: #c50a4c;
   transition: all 0.3s ease;
 }
-.link_style{
-  
-
-  a{
-    border: 1px solid black;
-border-radius: 20px;
+.link_style {
+  position: relative;
+  bottom: 290px;
+  right: 50px;
+  a {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 18px;
     text-decoration: none;
-    color: #5e5e5e;
-    font-size: 40px;
+    color: black;
+    padding: 0.75rem 4rem 0.75rem 1rem;
+    border: 2px solid #c50a4c;
+    border-left: 6px solid #c50a4c;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: #f5f5f5;
+  }
+
+  a:hover {
+    transform: scale(1.05);
+    background-color: #c50a4c;
+    color: white;
+    font-weight: 500;
   }
 }
 button:hover {
@@ -176,12 +191,12 @@ button:hover {
   color: black;
 }
 
-@media screen and (max-width : 1300px){
+@media screen and (max-width: 1300px) {
   .Main {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media screen and (max-width : 850px){
+@media screen and (max-width: 850px) {
   .Main {
     grid-template-columns: 1fr;
   }

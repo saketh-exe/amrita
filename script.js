@@ -11,10 +11,6 @@ let links = {};
 
 
 
-
-
-
-
 const sideBarYear = document.querySelector(".Side_Year");
 const years = document.querySelectorAll(".Year");
 const sideBarFiles = document.querySelector(".Side_Files");
@@ -169,21 +165,36 @@ document.querySelector('button').addEventListener('click', () => {
 const selectedLinkContainer = document.getElementById("selected-link");
 
 function generateLink() {
-
     if (pathArray.length === 1 && pathArray[0] === "Common Files") {
-        document.querySelector(".Main").style.width = "100%";
         const linkArray = links["Common Files"];
         selectedLinkContainer.innerHTML = linkArray.map(linkObj => {
             const [key, link] = Object.entries(linkObj)[0];
             return `<a href="${link}" target="_blank">${key}</a>`;
         }).join('<br>');
-    } else if (pathArray.length === 5) {
-        document.querySelector(".Main").style.width = "100%";
+    } else if (pathArray[0] === "Academic Files" && pathArray.length === 5) {
+        
+        const key = pathArray.slice(0, 5).join('_'); // Assuming pathArray[1] and pathArray[2] are years and semester
+       
+   
+        if (links[key]) {
+            const linkArray = links[key];
+           
+            selectedLinkContainer.innerHTML = linkArray.map(linkObj => {
+                const [key, link] = Object.entries(linkObj)[0];
+            return `<a href="${link}" target="_blank">${key}</a>`;
+            }).join('<br>');
+        } else {
+            selectedLinkContainer.innerHTML = "No links available";
+        }
+    } 
+    else if(pathArray.length === 5){
         const key = pathArray.map(item => item.trim()).join('_');
         const linkArray = links[key];
-        selectedLinkContainer.innerHTML = linkArray ? linkArray.map(link => `<a href="${link}" target="_blank">${link}</a>`).join('<br>') : "No link available";
-    } else {
-        document.querySelector(".Main").style.width = "100%";
+        selectedLinkContainer.innerHTML = linkArray ? linkArray.map(link => `<a href="${link}" target="_blank">File</a>`).join('<br>') : "No link available";
+    }
+    else {
         selectedLinkContainer.innerHTML = "";  // Clear the container if not all selections are made
     }
 }
+
+

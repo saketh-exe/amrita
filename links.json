@@ -1,5 +1,36 @@
 {
-  "Academic Files_2019 - 2023_1_CSE_A": ["https://onedrive.link1", "https://onedrive.link2"],
-  "Academic Files_2020 - 2024_2_CSE_B": ["https://onedrive.link3"],
-  "Common Files": [{"fi1":"https://www.youtube.com/"},{"fifdf1":"https://www.youtube.com/"}]
+
+  "Comment_1": "This is a comment and caution to user while adding multiple links currently multiple links are supported for only Academic and Common files ",
+  "Comment_2": "and links are to be upladed in the exact same format as memtioned in docx file attached to this folder",
+  "Comment_3": "Even space matters and any difference in format may result in not displaying of link here are somme example syntax",
+  "Comment_4": "For quick reference : {FILE_TYPE}_{YEAR}_{SEM}_{DEPRT}_{SECTION}",
+  
+  
+  
+  
+  "Academic Files_2019 - 2023_1_CSE_A": [
+    {"file1": "https://onedrive.link1"},
+    {"file2": "https://onedrive.link2"}
+  ],
+
+
+  "Academic Files_2020 - 2024_2_CSE_B": [
+    {"file1": "https://onedrive.link3"},
+    {"file2": "https://onedrive.link3"}
+  ],
+
+
+  "Common Files": [
+    {"file1": "https://www.youtube.com/"},
+    {"file2": "https://www.youtube.com/"}
+  ],
+
+  "Academic Files_2019 - 2023_1_CSE-AI_A": [
+    {"file1": "https://onedrive.link1"},
+    {"file2": "https://onedrive.link2"}
+  ],
+
+  "Regulations_2019 - 2023_1_CSE_A": ["https://temp.link1"],
+  "Regulations_2019 - 2023_1_CSE-CYS_A": ["https://temp.link1"]
+ 
 }
