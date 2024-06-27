@@ -1,3 +1,19 @@
+let links = {};
+
+        fetch('links.json')
+            .then(response => response.json())
+            .then(data => {
+                links = data;
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+
+
+
+
+
+
+
+
 
 const sideBarYear = document.querySelector(".Side_Year");
 const years = document.querySelectorAll(".Year");
@@ -25,8 +41,8 @@ function updatePathArray(index, value) {
     pathArray[index] = value.trim();
     renderStatus();
     renderSidebar();
+    generateLink();  // Update the link whenever pathArray changes
 }
-
 function resetContentDisplay(elements) {
     elements.forEach(element => element.style.display = "none");
 }
@@ -55,18 +71,24 @@ function renderSidebar() {
         });
     }
 }
+// Ensure the link is updated on every relevant interaction
 files.forEach(file => {
     file.addEventListener("click", () => {
+        const fileText = file.innerHTML.trim();
         resetContentDisplay(files);
-        if (file.innerHTML.trim() === 'Common Files') {
+
+        if (fileText === 'Common Files') {
             document.querySelector(".sidebar").style.display = "none";
+            pathArray = [fileText];
+            generateLink();
+            updatePathArray(0, fileText);
         } else {
             resetContentDisplay(years);
             sideBarFiles.classList.remove("active");
             sideBarYear.classList.add("active");
             years.forEach(el => el.style.display = 'flex');
+            updatePathArray(0, fileText);
         }
-        updatePathArray(0, file.innerHTML);
     });
 });
 
@@ -109,7 +131,6 @@ secs.forEach(sec => {
         updatePathArray(4, sec.innerHTML);
     });
 });
-
 function resetToStep(step) {
     pathArray.length = step;
     resetContentDisplay(contentElements);
@@ -132,6 +153,7 @@ function resetToStep(step) {
     }
     renderStatus();
     renderSidebar();
+    generateLink();  // Update the link whenever pathArray changes
 }
 
 statusFiles.addEventListener("click", () => resetToStep(0));
@@ -144,3 +166,24 @@ document.querySelector('button').addEventListener('click', () => {
     const joinedString = pathArray.map(item => item.trim()).join(')\u2192(');
     alert(joinedString);
 });
+const selectedLinkContainer = document.getElementById("selected-link");
+
+function generateLink() {
+
+    if (pathArray.length === 1 && pathArray[0] === "Common Files") {
+        document.querySelector(".Main").style.width = "100%";
+        const linkArray = links["Common Files"];
+        selectedLinkContainer.innerHTML = linkArray.map(linkObj => {
+            const [key, link] = Object.entries(linkObj)[0];
+            return `<a href="${link}" target="_blank">${key}</a>`;
+        }).join('<br>');
+    } else if (pathArray.length === 5) {
+        document.querySelector(".Main").style.width = "100%";
+        const key = pathArray.map(item => item.trim()).join('_');
+        const linkArray = links[key];
+        selectedLinkContainer.innerHTML = linkArray ? linkArray.map(link => `<a href="${link}" target="_blank">${link}</a>`).join('<br>') : "No link available";
+    } else {
+        document.querySelector(".Main").style.width = "100%";
+        selectedLinkContainer.innerHTML = "";  // Clear the container if not all selections are made
+    }
+}

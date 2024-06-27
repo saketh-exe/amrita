@@ -158,7 +158,17 @@ button {
   background-color: #c50a4c;
   transition: all 0.3s ease;
 }
+.link_style{
+  
 
+  a{
+    border: 1px solid black;
+border-radius: 20px;
+    text-decoration: none;
+    color: #5e5e5e;
+    font-size: 40px;
+  }
+}
 button:hover {
   cursor: pointer;
   border: 2px solid #c50a4c;
